@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>切换</title>
+    <style>
+        body{
+            margin:0px;
+            padding:0px;
+        }
+        ul{
+            list-style-type: none;
+        }
+        .title{
+            display: flex;
+        }
+        .title li{
+            margin:0px 5px;
+
+        }
+       .cur{
+           border-bottom: 1px solid olivedrab;
+           background:#d0baba;
+       }
+        .hid{
+            display: none;
+        }
+    </style>
+    <script src="jquery-1.11.3.min.js"></script>
+    <script>
+        window.onload=function(){
+            var li_list=$(".title").children();
+            var div_list=$(".content").children();
+             for(var i=0;i<li_list.length;i++){
+                 var li=li_list[i];
+                 (function(i){
+                     li.onmousemove=function () {
+                         clearTimeout(time);
+                         function move() {
+                             var div = $(div_list[i]);
+                             div.css("display", "block");
+                             div.siblings().css("display", "none");
+                             $(li_list[i]).addClass("cur");
+                             $(li_list[i]).siblings().removeClass("cur");
+                         }
+                        var time=setTimeout(move,300);
+                     }
+                 })(i);
+            }
+        }
+    </script>
+</head>
+<body>
+<div class="wrap">
+    <div class="top">
+        <ul class="title"><li class="cur">新闻</li><li>公告</li><li>公告1</li></ul>
+    </div>
+    <div class="content">
+        <div class="news">
+            <ul class="news-ul">
+                <li>
+                    <h4>新闻</h4>
+                    <p>新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻</p>
+                </li>
+                <li>
+                <h4>新闻</h4>
+                <p>新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻</p>
+            </li>
+                <li>
+                    <h4>新闻</h4>
+                    <p>新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻</p>
+                </li>
+
+            </ul>
+        </div>
+        <div class="notice hid">
+            <ul class="notic-ul ">
+                <li>
+                    <h4>公告</h4>
+                    <p>公告公告公告公告公告公告公告公告公告公告公告公告公告公告公告公告公告公告公告公告公告公告公告公告</p>
+                </li>
+                <li>
+                    <h4>公告</h4>
+                    <p>公告公告公告公告公告公告公告公告公告公告公告公告公告公告公告公告公告公告公告公告公告公告公告公告</p>
+                </li>
+                <li>
+                    <h4>公告</h4>
+                    <p>公告公告公告公告公告公告公告公告公告公告公告公告公告公告公告公告公告公告公告公告公告公告公告公告</p>
+                </li>
+            </ul>
+        </div>
+        <div class="notice hid">
+            <ul class="notic-ul ">
+                <li>
+                    <h4>公告1</h4>
+                    <p>公告公告公告公告公告公告公告公告公告公告公告公告公告公告公告公告公告公告公告公告公告公告公告公告</p>
+                </li>
+                <li>
+                    <h4>公告1</h4>
+                    <p>公告公告公告公告公告公告公告公告公告公告公告公告公告公告公告公告公告公告公告公告公告公告公告公告</p>
+                </li>
+                <li>
+                    <h4>公告1</h4>
+                    <p>公告公告公告公告公告公告公告公告公告公告公告公告公告公告公告公告公告公告公告公告公告公告公告公告</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+</html>
